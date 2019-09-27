@@ -1,15 +1,15 @@
 const express = require('express');
-const Form = require('../tform/tamkenform')
+const Person= require('./person')
 const router = require('express').Router()
 
 //Form INDEX
 router.get('/', (req, res)=>{
-    Form.find({})
-  .then(forms => {
-   if(forms.length < 1){
-    return res.json({ forms : forms, message : 'nothing found'})
+    Person.find({})
+  .then(persons => {
+   if(persons.length < 1){
+    return res.json({ persons : persons, message : 'nothing found'})
    }
-   res.status(200).json({ forms : forms})
+   res.status(200).json({ persons : persons})
   })
   .catch(err => {
    res.send({ message : err})
@@ -17,7 +17,7 @@ router.get('/', (req, res)=>{
   
 })
 
-//Form add
+//person add
 router.post('/', (req, res)=>{
   let data = {
     name : req.body.name,
@@ -26,11 +26,11 @@ router.post('/', (req, res)=>{
     city: req.body.city
   }
   
-  let forms = new Case(data)
-  forms.save()
+  let persons = new Person(data)
+  persons.save()
   .then(()=> {
     console.log("yes working")
-   res.status(200).json({ forms : forms, message: "saved"})
+   res.status(200).json({ persons : persons, message: "saved"})
   })
   .catch(err => {
     console.log("err")

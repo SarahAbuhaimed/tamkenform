@@ -1,12 +1,12 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
-const formSchema = new Schema({
+const personSchema = new Schema({
     name : { type: String, required: true},
-    age: { type: number, required: true},
+    age: { type: Number, required: true},
     country: { type: String, required: true},
     city: { type: String, required: true},
 },{timestamps : true})
 
-const Tform = mongoose.model('Tform', formSchema)
-module.exports = Tform
+const Person = mongoose.model('Person', personSchema)
+module.exports = Person
