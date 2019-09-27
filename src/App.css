@@ -17,6 +17,15 @@
   color: white;
 }
 
-.App-link {
-  color: #09d3ac;
+
+.App-label{
+  border-radius: 2em;
+  font-size: 14.5px;
+  margin-bottom: 0.5em;
 }
+.App-body{
+  position: absolute;
+  left: 40%;
+  top: 30%;
+}
+form{display: grid;}
